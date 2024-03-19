@@ -1,10 +1,13 @@
 namespace Motocycle_contest.Domain;
 
-public class Organizer : IEntity
+using System;
+
+[Serializable]
+public class Organizer : Identifier<int>
 {
-    private int id { get; set; }
-    private String username{ get; set; }
-    private String password{ get; set; }
+    private int id;
+    private string username;
+    private string password;
 
     public Organizer(int id, string username, string password)
     {
@@ -13,14 +16,33 @@ public class Organizer : IEntity
         this.password = password;
     }
 
-
-    public void setId(int id)
+    public string GetUsername()
     {
-        this.id = id;
+        return username;
     }
 
-    public int getId()
+    public void SetUsername(string username)
     {
-        return id;
+        this.username = username;
+    }
+
+    public string GetPassword()
+    {
+        return password;
+    }
+
+    public void SetPassword(string password)
+    {
+        this.password = password;
+    }
+
+    public int GetId()
+    {
+        return this.id;
+    }
+
+    public void SetId(int id)
+    {
+        this.id = id;
     }
 }

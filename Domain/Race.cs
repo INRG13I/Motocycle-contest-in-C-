@@ -1,31 +1,20 @@
 namespace Motocycle_contest.Domain;
 
 using System;
+using System.Collections.Generic;
 
 [Serializable]
-public class Participant : Identifier<int>
+public class Race : Identifier<int>
 {
     private int id;
-    private string name;
     private int capacity;
-    private string team;
+    private List<Participant> participants;
 
-    public Participant(int id, string name, int capacity, string team)
+    public Race(int id, int capacity, List<Participant> participants)
     {
         this.id = id;
-        this.name = name;
         this.capacity = capacity;
-        this.team = team;
-    }
-
-    public string GetName()
-    {
-        return name;
-    }
-
-    public void SetName(string name)
-    {
-        this.name = name;
+        this.participants = participants;
     }
 
     public int GetCapacity()
@@ -38,14 +27,14 @@ public class Participant : Identifier<int>
         this.capacity = capacity;
     }
 
-    public string GetTeam()
+    public List<Participant> GetParticipants()
     {
-        return team;
+        return participants;
     }
 
-    public void SetTeam(string team)
+    public void SetParticipants(List<Participant> participants)
     {
-        this.team = team;
+        this.participants = participants;
     }
 
     public int GetId()
